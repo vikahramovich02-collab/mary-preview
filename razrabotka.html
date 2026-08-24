@@ -16,9 +16,9 @@
 <meta property="og:site_name" content="Mary" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="description" content="Разработка ИИ-агентов, чат-ботов и интеграций под заказ. Гарантия 12 месяцев, права на результат у заказчика." />
+<meta name="description" content="Сайты, сервисы, интеграции, ИИ-агенты и автоматизация процессов на заказ. Гарантия 12 месяцев, права на результат у заказчика." />
 <meta name="robots" content="noindex, nofollow" />
-<title>Разработка и автоматизация на заказ</title>
+<title>IT-разработка и автоматизация на заказ</title>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","name":"Mary — разработка и автоматизация на заказ","url":"https://maryrose.by/razrabotka.html","areaServed":"BY","provider":{"@type":"Organization","name":"ООО «Мэрироуз»","url":"https://maryrose.by","email":"hello@mary.team","telephone":"+375291898501"},"description":"Разработка ИИ-агентов, чат-ботов, интеграций и систем автоматизации бизнес-процессов под заказ."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Кому принадлежит результат разработки?","acceptedAnswer":{"@type":"Answer","text":"Заказчику. Права, включая исключительное, переходят к нему; вознаграждение за уступку включено в стоимость работ."}},{"@type":"Question","name":"Есть ли гарантия?","acceptedAnswer":{"@type":"Answer","text":"Да, 12 месяцев с даты подписания акта. Найденные ошибки исправляем бесплатно в течение 7 рабочих дней."}},{"@type":"Question","name":"Как считается стоимость?","acceptedAnswer":{"@type":"Answer","text":"По объёму работ: каждая задача оценивается в часах и фиксируется в приложении к договору до старта."}},{"@type":"Question","name":"Чем это отличается от покупки платформы Mary?","acceptedAnswer":{"@type":"Answer","text":"Платформа — готовый продукт с подпиской. Разработка на заказ — решение под ваши процессы, которое может использовать платформу как основу или работать отдельно."}}]}]}</script>
 <style>
   /* ============================================================
@@ -267,18 +267,225 @@
 
   .post {
     display: block;
-    padding: 24px;
-    border: 1px solid var(--line);
-    border-radius: 20px;
     color: var(--ink);
     text-decoration: none;
-    transition: border-color .18s ease, background .18s ease;
   }
 
-  .post:hover { border-color: #333944; background: var(--panel); }
+  .post:hover .post__shot img { opacity: .88; }
+  .post__shot img { transition: opacity .18s ease; }
 
-  .post span { display: block; margin-bottom: 10px; color: var(--faint); font-size: 13px; }
-  .post b { font-weight: 500; font-size: 17px; line-height: 1.3; }
+  .post__shot {
+    position: relative;
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .post__shot img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 441 / 305;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  /* плашка автора — как на главной, но в тёмной палитре */
+  .post__badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px 6px 6px;
+    border-radius: 50px;
+    color: #fff;
+    background: rgba(10, 11, 13, .62);
+    font: 500 13px/1 var(--font);
+  }
+
+  .post__badge img { width: 22px; height: 22px; border-radius: 999px; object-fit: cover; }
+
+  .post b { display: block; font-weight: 500; font-size: 17px; line-height: 1.3; }
+  .post time { display: block; margin-top: 10px; color: var(--faint); font-size: 14px; }
+
+  /* ── кейс, перенесён с главной ──────────────────────────── */
+
+  .c-clients {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 4vw, 56px);
+    margin: 0 0 clamp(28px, 4vh, 44px);
+    padding: 0;
+    list-style: none;
+  }
+
+  .c-clients img {
+    height: clamp(20px, 2vw, 26px);
+    width: auto;
+    /* знаки чёрные — на тёмном выводим в белый */
+    filter: brightness(0) invert(1);
+    opacity: .55;
+  }
+
+  .c-clients img[data-small] { height: clamp(15px, 1.5vw, 20px); }
+
+  .c-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 504px);
+    align-items: center;
+    gap: clamp(24px, 3vw, 48px);
+    padding: clamp(32px, 4vw, 58px) clamp(24px, 3.4vw, 46px);
+    border-radius: 50px;
+    background: #F3F7FF;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  @media (max-width: 900px) { .c-card { grid-template-columns: 1fr; } }
+
+  .c-deco {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  .c-story h3 {
+    margin: 0;
+    color: #323538;
+    font-weight: 500;
+    font-size: clamp(24px, 2.5vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+  }
+
+  .c-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 21px;
+    color: #0238C7;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: gap .18s ease;
+  }
+
+  .c-more:hover { gap: 12px; }
+
+  .c-more svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .c-story blockquote {
+    max-width: 451px;
+    margin: clamp(28px, 5vh, 51px) 0 0;
+    color: #323538;
+    font: 500 16px/1.2 var(--font);
+    letter-spacing: -.01em;
+  }
+
+  .c-author {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: clamp(24px, 4vh, 40px) 0 0;
+  }
+
+  .c-author img { width: 58px; height: 58px; border-radius: 999px; object-fit: cover; }
+  .c-author figcaption { display: flex; flex-direction: column; gap: 8px; }
+  .c-name { color: #494F5C; font: 500 16px/1 var(--font); }
+  .c-role { color: rgba(73, 79, 92, .3); font: 500 14px/1 var(--font); }
+
+  .c-stats {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: clamp(24px, 2.6vw, 40px);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .c-stats-label { margin: 0 0 22px; color: #5B6479; font: 500 14px/1 var(--font); }
+
+  .c-stat + .c-stat {
+    margin-top: clamp(20px, 2.6vh, 28px);
+    padding-top: clamp(20px, 2.6vh, 28px);
+    border-top: 1px solid #E6ECF8;
+  }
+
+  .c-stat dt { display: flex; align-items: baseline; gap: 8px; }
+
+  .c-value {
+    color: #151617;
+    font: 400 clamp(36px, 3.8vw, 54px)/1 var(--font);
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .c-unit { color: #151617; font: 400 clamp(16px, 1.6vw, 22px)/1 var(--font); letter-spacing: -.01em; }
+
+  .c-stats dd { margin: 10px 0 0; color: #5B6479; font: 400 15px/1.4 var(--font); }
+
+  /* ── вопросы-ответы ─────────────────────────────────────── */
+
+  .faq { max-width: 900px; margin: 0 auto; }
+
+  .faq details {
+    border-top: 1px solid var(--line);
+  }
+
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+
+  .faq summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    color: var(--ink);
+    font: 400 18px/1.35 var(--font);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq summary::-webkit-details-marker { display: none; }
+
+  .faq summary::before {
+    content: "+";
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: var(--panel-2);
+    color: var(--soft);
+    font-size: 18px;
+    transition: transform .2s ease;
+  }
+
+  .faq details[open] summary::before { content: "–"; }
+
+  .faq p {
+    margin: 0 0 22px 50px;
+    max-width: 62ch;
+    font-size: 16px;
+  }
 
   /* ── заявка ────────────────────────────────────────────── */
 
@@ -314,7 +521,7 @@
 
 <div class="wrap">
   <header class="nav">
-    <a class="nav__brand" href="/mary-preview/"><img src="/mary-preview/mary-mark.svg" alt="" /><span>mary</span></a>
+    <a class="nav__brand" href="/mary-preview/"><img loading="lazy" decoding="async" src="/mary-preview/mary-mark.svg" alt="" /><span>mary</span></a>
 
     <nav class="nav__links">
       <a href="#what">Что делаем</a>
@@ -331,14 +538,13 @@
 <div class="wrap">
 
   <section class="hero">
-    <p class="eyebrow"><i></i> Разработка и автоматизация на заказ</p>
+    <p class="eyebrow"><i></i> IT-разработка и автоматизация</p>
 
-    <h1>Соберём автоматизацию под ваши процессы</h1>
+    <h1>Разработка под задачу бизнеса</h1>
 
-    <p class="lead">ИИ-агенты, боты, интеграции и системы, которые снимают
-    с людей механическую работу. Делаем это на том же, на чём строим
-    собственную платформу, — поэтому знаем, что живёт в проде, а что разваливается
-    после демо.</p>
+    <p class="lead">Сайты, сервисы, интеграции, ИИ-агенты и автоматизация процессов.
+    Делаем это на том же, на чём строим собственную платформу, — поэтому знаем,
+    что живёт в проде, а что разваливается после демо.</p>
 
     <div class="cta-row">
       <a class="btn" href="#request">Обсудить задачу</a>
@@ -375,10 +581,15 @@
 
   <section id="what">
     <h2>Что делаем</h2>
-    <p>Перечень не рекламный — это то, что записано в наших договорах
-    и сдано по актам.</p>
+    <p>Не только автоматизация: беремся и за обычную разработку.
+    Перечень не рекламный — это то, что записано в наших договорах и сдано по актам.</p>
 
     <div class="grid">
+      <div class="card">
+        <h3>Сайты и веб-сервисы</h3>
+        <p>Лендинги, корпоративные сайты, личные кабинеты, внутренние панели.
+        От макета до боевого сервера.</p>
+      </div>
       <div class="card">
         <h3>ИИ-агенты и чат-боты</h3>
         <p>Приём обращений, ответы по базе знаний, действия в ваших системах,
@@ -408,6 +619,11 @@
         <h3>Платформа под ключ</h3>
         <p>Если задача крупнее бота — собираем систему целиком, с интерфейсом,
         правами и отчётностью.</p>
+      </div>
+      <div class="card">
+        <h3>Доработка того, что уже есть</h3>
+        <p>Подхватываем чужой код: чиним, дописываем, доводим до состояния,
+        в котором с ним можно жить.</p>
       </div>
     </div>
   </section>
@@ -456,23 +672,46 @@
   </section>
 
   <section id="case">
-    <h2>Кейс: производство печатной продукции</h2>
-    <p>Подключились к рабочему Битриксу и начали с аудита. Вот что он показал
-    до того, как что-либо автоматизировали:</p>
+    <h2 style="text-align:center;max-width:22ch;margin:0 auto 30px">Как это выглядит на живом бизнесе</h2>
 
-    <div class="figs">
-      <div><b>87,7 %</b><span>сделок числятся «в работе», но месяцами не двигаются</span></div>
-      <div><b>7 490</b><span>раз вручную поставлена задача «связаться с клиентом»</span></div>
-      <div><b>53 %</b><span>сделок без источника — непонятно, какая реклама приносит деньги</span></div>
-    </div>
+    <ul class="c-clients">
+      <li><img loading="lazy" decoding="async" src="/mary-preview/media/case/logo-fabrika.webp" alt="Фабрика Фотокниги" /></li>
+      <li><img loading="lazy" decoding="async" src="/mary-preview/media/case/logo-mtbank.webp" alt="МТБанк" data-small /></li>
+      <li><img loading="lazy" decoding="async" src="/mary-preview/media/case/logo-htp.webp" alt="ПВТ" data-small /></li>
+      <li><img loading="lazy" decoding="async" src="/mary-preview/media/case/logo-space.webp" alt="Space" /></li>
+    </ul>
 
-    <p style="margin-top:26px">За пять недель после запуска доля обращений,
-    закрытых без менеджера, выросла с 7,5% до 51,8%. Среднее время ответа
-    клиенту — около минуты.</p>
+    <article class="c-card">
+      <img class="c-deco" src="/mary-preview/media/case/deco.webp" alt="" />
 
-    <div class="cta-row">
-      <a class="btn is-ghost" href="/mary-preview/case-photoprint.html">Читать разбор целиком</a>
-    </div>
+      <div class="c-story">
+        <h3>Фабрика Фотокниги<br />автоматизировала поддержку<br />клиентов и SMM</h3>
+
+        <a class="c-more" href="/mary-preview/case-photoprint.html">
+          Читать кейс
+          <svg viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" /></svg>
+        </a>
+
+        <blockquote>«Мы не думали, что начнётся с аудита. Mary просто посмотрела нашу CRM
+        и показала цифры, которые мы сами не видели: сколько сделок висит без движения
+        и сколько раз менеджеры вручную ставят себе задачу «связаться с клиентом».»</blockquote>
+
+        <figure class="c-author">
+          <img loading="lazy" decoding="async" src="/mary-preview/media/case/avatar.webp" alt="" />
+          <figcaption>
+            <span class="c-name">Максим Ляпкин</span>
+            <span class="c-role">Директор «Фотопринт»</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <dl class="c-stats">
+        <p class="c-stats-label">Что изменилось после запуска</p>
+        <div class="c-stat"><dt><span class="c-value">52</span><span class="c-unit">%</span></dt><dd>обращений закрывается без менеджера</dd></div>
+        <div class="c-stat"><dt><span class="c-value">1</span><span class="c-unit">мин</span></dt><dd>среднее время ответа клиенту</dd></div>
+        <div class="c-stat"><dt><span class="c-value">~600</span></dt><dd>обращений в неделю в одном процессе</dd></div>
+      </dl>
+    </article>
   </section>
 
   <section id="stack">
@@ -528,18 +767,70 @@
     <p>Пишем то же, что делаем. Блог общий с платформой.</p>
 
     <div class="posts">
-      <a class="post" href="/mary-preview/blog/kak-vnedrit-ai.html">
-        <span>1 августа 2026</span>
-        <b>Как внедрить ИИ в реальные бизнес-процессы</b>
-      </a>
-      <a class="post" href="/mary-preview/blog/s-chego-nachat.html">
-        <span>12 августа 2026</span>
-        <b>С чего начать автоматизацию, если ничего не автоматизировано</b>
-      </a>
       <a class="post" href="/mary-preview/blog/salon-avtomatizacia.html">
-        <span>24 августа 2026</span>
-        <b>Автоматизация салона красоты: что снять с администратора</b>
+        <span class="post__shot">
+          <img loading="lazy" decoding="async" src="/mary-preview/media/blog/10-salon.webp" alt="" />
+          <span class="post__badge"><img loading="lazy" decoding="async" src="/mary-preview/media/blog/author.webp" alt="" />Александр Лукашевич</span>
+        </span>
+        <b>Автоматизация салона красоты: что реально можно снять с администратора</b>
+        <time>24 августа 2026</time>
       </a>
+
+      <a class="post" href="/mary-preview/blog/s-chego-nachat.html">
+        <span class="post__shot">
+          <img loading="lazy" decoding="async" src="/mary-preview/media/blog/09-start.webp" alt="" />
+          <span class="post__badge"><img loading="lazy" decoding="async" src="/mary-preview/media/blog/author.webp" alt="" />Александр Лукашевич</span>
+        </span>
+        <b>С чего начать автоматизацию, если в компании ничего не автоматизировано</b>
+        <time>12 августа 2026</time>
+      </a>
+
+      <a class="post" href="/mary-preview/blog/kak-vnedrit-ai.html">
+        <span class="post__shot">
+          <img loading="lazy" decoding="async" src="/mary-preview/media/blog/08-ai-processes.webp" alt="" />
+          <span class="post__badge"><img loading="lazy" decoding="async" src="/mary-preview/media/blog/author.webp" alt="" />Александр Лукашевич</span>
+        </span>
+        <b>Как внедрить ИИ в реальные бизнес-процессы</b>
+        <time>1 августа 2026</time>
+      </a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2 style="text-align:center;margin:0 auto 30px">Отвечаем на вопросы</h2>
+
+    <div class="faq">
+      <details>
+        <summary>Кому принадлежит результат разработки?</summary>
+        <p>Заказчику. Права, включая исключительное, переходят к нему — вознаграждение
+        за уступку входит в стоимость работ и отдельно не считается.</p>
+      </details>
+      <details>
+        <summary>Есть ли гарантия?</summary>
+        <p>Да, двенадцать месяцев с даты подписания акта. Найденные ошибки исправляем
+        бесплатно в течение семи рабочих дней.</p>
+      </details>
+      <details>
+        <summary>Как считается стоимость?</summary>
+        <p>По объёму работ: каждая задача оценивается в часах и фиксируется
+        в приложении к договору до старта. Без «посчитаем по ходу».</p>
+      </details>
+      <details>
+        <summary>Чем это отличается от покупки платформы Mary?</summary>
+        <p>Платформа — готовый продукт с подпиской. Разработка на заказ — решение
+        под ваши процессы: оно может использовать платформу как основу или работать
+        отдельно.</p>
+      </details>
+      <details>
+        <summary>Вы работаете только с крупными компаниями?</summary>
+        <p>Нет. Размер не важен, важна повторяемость: если одно и то же действие
+        выполняется сотни раз в месяц, автоматизация окупается.</p>
+      </details>
+      <details>
+        <summary>Что с конфиденциальностью?</summary>
+        <p>Работаем по договору с обязательством о неразглашении. Если в работе
+        участвуют персональные данные, заключаем отдельное соглашение об их обработке.</p>
+      </details>
     </div>
   </section>
 
