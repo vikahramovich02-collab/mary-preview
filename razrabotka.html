@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/mary-preview/favicon.ico" sizes="any" />
+<link rel="icon" href="/mary-preview/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="/mary-preview/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/mary-preview/apple-touch-icon.png" />
+<link rel="canonical" href="https://maryrose.by/razrabotka.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maryrose.by/razrabotka.html" />
+<meta property="og:title" content="Разработка и автоматизация на заказ — Mary" />
+<meta property="og:description" content="Собираем ИИ-агентов, ботов и интеграции под ваши процессы. Делаем это на том же, на чём строим собственную платформу." />
+<meta property="og:image" content="https://maryrose.by/favicon-512.png" />
+<meta property="og:site_name" content="Mary" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="description" content="Разработка ИИ-агентов, чат-ботов и интеграций под заказ. Гарантия 12 месяцев, права на результат у заказчика." />
+<meta name="robots" content="noindex, nofollow" />
+<title>Разработка и автоматизация на заказ</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","name":"Mary — разработка и автоматизация на заказ","url":"https://maryrose.by/razrabotka.html","areaServed":"BY","provider":{"@type":"Organization","name":"ООО «Мэрироуз»","url":"https://maryrose.by","email":"hello@mary.team","telephone":"+375291898501"},"description":"Разработка ИИ-агентов, чат-ботов, интеграций и систем автоматизации бизнес-процессов под заказ."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Кому принадлежит результат разработки?","acceptedAnswer":{"@type":"Answer","text":"Заказчику. Права, включая исключительное, переходят к нему; вознаграждение за уступку включено в стоимость работ."}},{"@type":"Question","name":"Есть ли гарантия?","acceptedAnswer":{"@type":"Answer","text":"Да, 12 месяцев с даты подписания акта. Найденные ошибки исправляем бесплатно в течение 7 рабочих дней."}},{"@type":"Question","name":"Как считается стоимость?","acceptedAnswer":{"@type":"Answer","text":"По объёму работ: каждая задача оценивается в часах и фиксируется в приложении к договору до старта."}},{"@type":"Question","name":"Чем это отличается от покупки платформы Mary?","acceptedAnswer":{"@type":"Answer","text":"Платформа — готовый продукт с подпиской. Разработка на заказ — решение под ваши процессы, которое может использовать платформу как основу или работать отдельно."}}]}]}</script>
+<style>
+  /* ============================================================
+     Лендинг агентства. Тёмный — сознательно: продукт и услуга
+     должны отличаться на первый взгляд, но язык остаётся общим:
+     те же шрифты, радиусы и синий акцент.
+     ============================================================ */
+
+  :root {
+    --bg:      #0F1013;
+    --panel:   #16181C;
+    --panel-2: #1D2026;
+    --ink:     #F2F3F5;
+    --soft:    #A8AEB8;
+    --faint:   #767C87;
+    --line:    #262A31;
+    --accent:  #4E8CFF;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+            "SF Pro", "Inter Variable", "Inter", "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+
+  body {
+    margin: 0;
+    color: var(--soft);
+    background: var(--bg);
+    font: 400 16px/1.6 var(--font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { color: inherit; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 3.5vw, 50px); }
+
+  /* ── шапка ─────────────────────────────────────────────── */
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 76px;
+  }
+
+  .nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 19.4px;
+    letter-spacing: -.09em;
+    text-decoration: none;
+  }
+
+  .nav__brand img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+
+  .nav__links { display: flex; gap: 26px; }
+
+  .nav__links a {
+    color: var(--soft);
+    font: 500 14px/1 var(--font);
+    letter-spacing: -.03em;
+    text-decoration: none;
+    transition: color .18s ease;
+  }
+
+  .nav__links a:hover { color: var(--ink); }
+
+  @media (max-width: 860px) { .nav__links { display: none; } }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 22px;
+    border-radius: 40px;
+    background: var(--ink);
+    color: #0F1013;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity .18s ease;
+  }
+
+  .btn:hover { opacity: .88; }
+
+  .btn.is-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+
+  /* ── первый экран ──────────────────────────────────────── */
+
+  .hero { padding: clamp(48px, 9vh, 110px) 0 clamp(40px, 7vh, 80px); }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 22px;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 40px;
+    color: var(--faint);
+    font: 500 13px/1 var(--font);
+  }
+
+  .eyebrow i {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  h1 {
+    max-width: 18ch;
+    margin: 0;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: clamp(34px, 5.6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -.035em;
+  }
+
+  .lead { max-width: 56ch; margin: 24px 0 0; font-size: 18px; }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 32px 0 0; }
+
+  /* ── общее ─────────────────────────────────────────────── */
+
+  section { padding: clamp(48px, 8vh, 90px) 0; }
+
+  h2 {
+    margin: 0 0 18px;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.12;
+    letter-spacing: -.03em;
+  }
+
+  h3 { margin: 0 0 8px; color: var(--ink); font-weight: 500; font-size: 18px; }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .card {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--panel);
+  }
+
+  .card p { margin: 0; font-size: 15px; }
+
+  .steps { margin: 28px 0 0; padding: 0; list-style: none; counter-reset: s; }
+
+  .steps li {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .steps li::before {
+    counter-increment: s;
+    content: counter(s);
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: var(--panel-2);
+    color: var(--ink);
+    font: 500 14px/1 var(--font);
+  }
+
+  .steps b { display: block; margin-bottom: 5px; color: var(--ink); font-weight: 500; }
+  .steps p { margin: 0; font-size: 15px; }
+
+  .figs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    margin-top: 28px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+
+  .figs div { padding: 26px 22px; }
+  .figs div + div { border-left: 1px solid var(--line); }
+
+  @media (max-width: 700px) {
+    .figs div + div { border-left: 0; border-top: 1px solid var(--line); }
+  }
+
+  .figs b {
+    display: block;
+    color: var(--ink);
+    font-weight: 400;
+    font-size: clamp(28px, 3.6vw, 42px);
+    line-height: 1;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .figs span { display: block; margin-top: 10px; color: var(--faint); font-size: 14px; line-height: 1.4; }
+
+  .stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+
+  .stack span {
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 40px;
+    font-size: 15px;
+  }
+
+  .terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 28px; }
+
+  .term {
+    padding: 22px;
+    border-radius: 20px;
+    background: var(--panel);
+  }
+
+  .term b { display: block; margin-bottom: 6px; color: var(--ink); font-weight: 500; font-size: 17px; }
+  .term p { margin: 0; font-size: 15px; }
+
+  /* блог — общий с основным сайтом */
+
+  .posts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 28px; }
+
+  .post {
+    display: block;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color .18s ease, background .18s ease;
+  }
+
+  .post:hover { border-color: #333944; background: var(--panel); }
+
+  .post span { display: block; margin-bottom: 10px; color: var(--faint); font-size: 13px; }
+  .post b { font-weight: 500; font-size: 17px; line-height: 1.3; }
+
+  /* ── заявка ────────────────────────────────────────────── */
+
+  .final {
+    margin: 0 auto;
+    padding: clamp(32px, 4vw, 56px);
+    border-radius: 30px;
+    background: var(--panel);
+    text-align: center;
+  }
+
+  .final h2 { margin: 0; }
+  .final p { margin: 14px auto 26px; max-width: 52ch; }
+
+  /* ── подвал ────────────────────────────────────────────── */
+
+  .foot {
+    padding: clamp(32px, 5vh, 56px) 0;
+    border-top: 1px solid var(--line);
+    color: var(--faint);
+    font-size: 14px;
+  }
+
+  .foot__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+
+  .foot a { color: var(--soft); text-decoration: none; }
+  .foot a:hover { color: var(--ink); }
+
+  .foot__links { display: flex; flex-wrap: wrap; gap: 24px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="nav">
+    <a class="nav__brand" href="/mary-preview/"><img src="/mary-preview/mary-mark.svg" alt="" /><span>mary</span></a>
+
+    <nav class="nav__links">
+      <a href="#what">Что делаем</a>
+      <a href="#how">Как работаем</a>
+      <a href="#case">Кейс</a>
+      <a href="#terms">Условия</a>
+      <a href="/mary-preview/">Платформа Mary</a>
+    </nav>
+
+    <a class="btn" href="#request">Обсудить задачу</a>
+  </header>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow"><i></i> Разработка и автоматизация на заказ</p>
+
+    <h1>Соберём автоматизацию под ваши процессы</h1>
+
+    <p class="lead">ИИ-агенты, боты, интеграции и системы, которые снимают
+    с людей механическую работу. Делаем это на том же, на чём строим
+    собственную платформу, — поэтому знаем, что живёт в проде, а что разваливается
+    после демо.</p>
+
+    <div class="cta-row">
+      <a class="btn" href="#request">Обсудить задачу</a>
+      <a class="btn is-ghost" href="#case">Посмотреть кейс</a>
+    </div>
+  </section>
+
+  <section id="proof">
+    <h2>Мы не подрядчик «на словах»</h2>
+    <p>Параллельно с заказной разработкой мы строим Mary — собственную платформу
+    автоматизации бизнеса. Это не витрина: те же люди, тот же код, те же грабли.</p>
+    <p>Разница для вас простая. Подрядчик, у которого нет своего продукта, сдаёт
+    проект и уходит. Мы каждый день живём с последствиями своих решений —
+    и поэтому не собираем то, что придётся переписать через полгода.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Знаем цену пилота</h3>
+        <p>Отличаем демо, которое красиво показать, от системы, которая переживёт
+        пятьсот обращений в неделю.</p>
+      </div>
+      <div class="card">
+        <h3>Не продаём вайбкод</h3>
+        <p>Прототип собираем быстро, но там, где ошибка уходит клиенту, нужен
+        нормальный контур: тесты, мониторинг, очередь, откат.</p>
+      </div>
+      <div class="card">
+        <h3>Считаем до старта</h3>
+        <p>Начинаем с аудита и замера. Без цифр «до» через три месяца невозможно
+        доказать, что стало лучше.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="what">
+    <h2>Что делаем</h2>
+    <p>Перечень не рекламный — это то, что записано в наших договорах
+    и сдано по актам.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>ИИ-агенты и чат-боты</h3>
+        <p>Приём обращений, ответы по базе знаний, действия в ваших системах,
+        передача человеку там, где нужен человек.</p>
+      </div>
+      <div class="card">
+        <h3>Интеграции</h3>
+        <p>CRM, ERP, мессенджеры, службы доставки, таблицы. Связываем то,
+        между чем сейчас ходит менеджер.</p>
+      </div>
+      <div class="card">
+        <h3>Базы знаний</h3>
+        <p>Собираем и поддерживаем источник правды, на который опираются ответы.
+        Нет источника — нет автоответа.</p>
+      </div>
+      <div class="card">
+        <h3>Аудит процессов</h3>
+        <p>Подключаемся к рабочей CRM и считаем, сколько работы делается руками.
+        Часто это первый и самый полезный шаг.</p>
+      </div>
+      <div class="card">
+        <h3>Перенос и настройка процессов</h3>
+        <p>Разбираем, как всё устроено сейчас, и переносим в рабочий контур —
+        без «сначала опишите нам ТЗ».</p>
+      </div>
+      <div class="card">
+        <h3>Платформа под ключ</h3>
+        <p>Если задача крупнее бота — собираем систему целиком, с интерфейсом,
+        правами и отчётностью.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>Как работаем</h2>
+    <p>Порядок один и тот же, независимо от размера задачи.</p>
+
+    <ol class="steps">
+      <li>
+        <div>
+          <b>Разбор задачи</b>
+          <p>Бесплатно. Смотрим, что происходит сейчас, и говорим, где реально
+          есть выигрыш, а где автоматизация не окупится.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Аудит и оценка</b>
+          <p>Подключаемся к системам, считаем объём ручной работы. Каждая задача
+          оценивается в часах и попадает в приложение к договору.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Разработка</b>
+          <p>Собираем контур и показываем частями. Работа идёт по согласованному
+          перечню, а не «как пойдёт».</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Приёмка</b>
+          <p>Сдаём по акту. Недостатки устраняем в срок до десяти календарных дней
+          с момента, когда вы их назвали.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <b>Гарантия и сопровождение</b>
+          <p>Двенадцать месяцев гарантии. Найденные ошибки исправляем бесплатно
+          в течение семи рабочих дней.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="case">
+    <h2>Кейс: производство печатной продукции</h2>
+    <p>Подключились к рабочему Битриксу и начали с аудита. Вот что он показал
+    до того, как что-либо автоматизировали:</p>
+
+    <div class="figs">
+      <div><b>87,7 %</b><span>сделок числятся «в работе», но месяцами не двигаются</span></div>
+      <div><b>7 490</b><span>раз вручную поставлена задача «связаться с клиентом»</span></div>
+      <div><b>53 %</b><span>сделок без источника — непонятно, какая реклама приносит деньги</span></div>
+    </div>
+
+    <p style="margin-top:26px">За пять недель после запуска доля обращений,
+    закрытых без менеджера, выросла с 7,5% до 51,8%. Среднее время ответа
+    клиенту — около минуты.</p>
+
+    <div class="cta-row">
+      <a class="btn is-ghost" href="/mary-preview/case-photoprint.html">Читать разбор целиком</a>
+    </div>
+  </section>
+
+  <section id="stack">
+    <h2>С чем работаем</h2>
+    <p>Подключаемся к тому, что у вас уже стоит. Переносить и переписывать
+    ничего не нужно.</p>
+
+    <div class="stack">
+      <span>Битрикс24</span>
+      <span>amoCRM</span>
+      <span>1С</span>
+      <span>YCLIENTS</span>
+      <span>Telegram</span>
+      <span>WhatsApp</span>
+      <span>Instagram</span>
+      <span>Почта</span>
+      <span>Google Таблицы</span>
+      <span>Ваша ERP</span>
+      <span>Ваш сервис</span>
+    </div>
+  </section>
+
+  <section id="terms">
+    <h2>Условия, о которых обычно спрашивают в конце</h2>
+    <p>Мы выносим их вперёд — так короче разговор.</p>
+
+    <div class="terms">
+      <div class="term">
+        <b>Права на результат — ваши</b>
+        <p>Права, включая исключительное, переходят заказчику. Вознаграждение
+        за уступку входит в стоимость работ.</p>
+      </div>
+      <div class="term">
+        <b>Гарантия 12 месяцев</b>
+        <p>С даты подписания акта. Ошибки исправляем бесплатно в течение
+        семи рабочих дней.</p>
+      </div>
+      <div class="term">
+        <b>Оценка до старта</b>
+        <p>Каждая задача — с часами и стоимостью в приложении к договору.
+        Без «посчитаем по ходу».</p>
+      </div>
+      <div class="term">
+        <b>Конфиденциальность</b>
+        <p>Работаем по договору с обязательством о неразглашении. Персональные
+        данные — по отдельному соглашению.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Разбираем, как это устроено</h2>
+    <p>Пишем то же, что делаем. Блог общий с платформой.</p>
+
+    <div class="posts">
+      <a class="post" href="/mary-preview/blog/kak-vnedrit-ai.html">
+        <span>1 августа 2026</span>
+        <b>Как внедрить ИИ в реальные бизнес-процессы</b>
+      </a>
+      <a class="post" href="/mary-preview/blog/s-chego-nachat.html">
+        <span>12 августа 2026</span>
+        <b>С чего начать автоматизацию, если ничего не автоматизировано</b>
+      </a>
+      <a class="post" href="/mary-preview/blog/salon-avtomatizacia.html">
+        <span>24 августа 2026</span>
+        <b>Автоматизация салона красоты: что снять с администратора</b>
+      </a>
+    </div>
+  </section>
+
+  <section id="request">
+    <div class="final">
+      <h2>Расскажите задачу</h2>
+      <p>Разбор бесплатный: посмотрим, что происходит сейчас, и честно скажем,
+      где автоматизация окупится, а где нет.</p>
+      <a class="btn" href="mailto:hello@mary.team?subject=Заказать%20разработку">Написать нам</a>
+    </div>
+  </section>
+
+</div>
+
+<footer class="foot">
+  <div class="wrap foot__row">
+    <span>© Mary, 2026. ООО «Мэрироуз»</span>
+    <div class="foot__links">
+      <a href="/mary-preview/">Платформа Mary</a>
+      <a href="mailto:hello@mary.team">hello@mary.team</a>
+      <a href="/mary-preview/privacy.html">Политика конфиденциальности</a>
+      <a href="/mary-preview/terms.html">Условия использования</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
