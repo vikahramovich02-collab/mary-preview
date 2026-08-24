@@ -629,6 +629,181 @@
   .final h2 { margin: 0; }
   .final p { margin: 12px auto 24px; max-width: 54ch; }
 
+
+  /* ── лендинг ниши ──────────────────────────────────────── */
+
+  .n-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+    align-items: center;
+    gap: clamp(28px, 4vw, 64px);
+    padding: clamp(28px, 4vh, 48px) 0 clamp(40px, 7vh, 80px);
+  }
+
+  @media (max-width: 940px) { .n-hero { grid-template-columns: 1fr; } }
+
+  .n-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 40px;
+    color: var(--tertiary);
+    font: 500 13px/1 var(--font);
+  }
+
+  .n-eyebrow i { width: 7px; height: 7px; border-radius: 999px; background: #0064FF; }
+
+  .n-hero h1 {
+    max-width: 15ch;
+    margin: 0;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: clamp(32px, 4.6vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -.035em;
+  }
+
+  .n-hero .lead { max-width: 46ch; margin: 22px 0 0; font-size: 18px; }
+
+  .n-visual {
+    position: relative;
+    border-radius: 34px;
+    background: #F3F7FF;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: clamp(280px, 34vw, 420px);
+    display: grid;
+    place-items: center;
+    padding: clamp(20px, 2.4vw, 32px);
+  }
+
+  .n-visual img.deco {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .n-panel {
+    width: 100%;
+    padding: clamp(20px, 2.2vw, 28px);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .74);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .n-panel small { display: block; margin-bottom: 16px; color: var(--tertiary); font-size: 14px; }
+
+  .n-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(0, 0, 0, .06);
+    font-size: 15px;
+  }
+
+  .n-row:first-of-type { border-top: 0; }
+  .n-row b { color: var(--ink); font-weight: 500; }
+  .n-row span { color: #1F9E52; font-weight: 500; font-size: 14px; }
+  .n-row.is-wait span { color: var(--tertiary); }
+
+  /* карточки с картинками */
+
+  .n-shots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(16px, 2vw, 26px);
+    margin-top: 30px;
+  }
+
+  .n-shot img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 441 / 296;
+    object-fit: cover;
+    border-radius: 26px;
+  }
+
+  .n-shot b { display: block; margin: 18px 0 6px; color: var(--ink); font-weight: 500; font-size: 18px; }
+  .n-shot p { margin: 0; font-size: 15px; }
+
+  /* полоса цифр на голубом */
+
+  .n-figs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin-top: 28px;
+    border-radius: 30px;
+    background: #E3ECFC;
+    overflow: hidden;
+  }
+
+  .n-figs div { padding: clamp(24px, 3vw, 36px); background: #F3F7FF; }
+
+  .n-figs b {
+    display: block;
+    color: var(--ink);
+    font-weight: 400;
+    font-size: clamp(30px, 3.8vw, 46px);
+    line-height: 1;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .n-figs span { display: block; margin-top: 10px; color: var(--secondary); font-size: 15px; line-height: 1.4; }
+
+  /* сценарии */
+
+  .n-steps { margin: 28px 0 0; padding: 0; list-style: none; }
+
+  .n-steps li {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 16px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .n-steps li:last-child { border-bottom: 1px solid var(--line); }
+
+  .n-steps img { width: 26px; height: 26px; margin-top: 2px; }
+  .n-steps b { display: block; margin-bottom: 6px; color: var(--ink); font-weight: 500; font-size: 18px; }
+  .n-steps p { margin: 0; font-size: 15px; }
+
+  /* интеграции */
+
+  .n-apps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+
+  .n-app {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px 8px 8px;
+    border: 1px solid var(--line);
+    border-radius: 40px;
+    font-size: 15px;
+  }
+
+  .n-app img { width: 30px; height: 30px; border-radius: 999px; object-fit: contain; }
+
+  /* сроки */
+
+  .n-time { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 28px; }
+
+  .n-week { padding: 22px; border: 1px solid var(--line); border-radius: 20px; }
+  .n-week time { display: block; margin-bottom: 8px; color: var(--tertiary); font-size: 14px; }
+  .n-week b { display: block; margin-bottom: 6px; color: var(--ink); font-weight: 500; }
+  .n-week p { margin: 0; font-size: 15px; }
+
   /* ── футер ─────────────────────────────────────────────── */
 
   .page {
@@ -762,40 +937,52 @@
 
 <p class="crumbs"><a href="/mary-preview/">Mary</a> / <a href="/mary-preview/#niches">Для компаний</a> / Производство</p>
 
-<h1>Автоматизация производства: от заявки до забранного заказа</h1>
+<div class="n-hero">
+  <div>
+    <p class="n-eyebrow"><i></i> Производство</p>
+    <h1>От заявки до забранного заказа — без ручной работы</h1>
+    <p class="lead">Заявки приходят из мессенджеров и почты, расчёт делает менеджер,
+    статус клиент узнаёт только когда позвонит, а часть заказов месяцами лежит
+    на складе. Mary забирает эту механику на себя.</p>
 
-<p class="lead">Заявки приходят из мессенджеров и почты, расчёт делает менеджер,
-статус клиент узнаёт только когда позвонит, а часть заказов месяцами лежит
-на складе невостребованной. Mary забирает эту механику на себя.</p>
+    <div class="cta-row">
+      <a class="btn" href="/mary-preview/#app">Обсудить аудит</a>
+      <a class="btn is-soft" href="/mary-preview/case-photoprint.html">Кейс производства</a>
+    </div>
+  </div>
 
-<div class="cta-row">
-  <a class="btn" href="/mary-preview/#app">Обсудить аудит</a>
-  <a class="btn is-soft" href="/mary-preview/case-photoprint.html">Посмотреть кейс производства</a>
+  <div class="n-visual">
+    <img class="deco" src="/mary-preview/media/case/deco.webp" alt="" />
+    <div class="n-panel">
+      <small>Заказ 4271 · сегодня</small>
+      <div class="n-row"><b>Заявка принята</b><span>Готово</span></div>
+      <div class="n-row"><b>Расчёт отправлен</b><span>Готово</span></div>
+      <div class="n-row"><b>В производстве</b><span>Готово</span></div>
+      <div class="n-row is-wait"><b>Отгрузка</b><span>Ждём склад</span></div>
+    </div>
+  </div>
 </div>
 
-<h2>Где производство теряет деньги и время</h2>
-
+<h2>Где производство теряет деньги</h2>
 <p>Это не про «нет процессов» — на производстве они как раз есть, и подробные.
 Теряется на стыках: между каналом, где написал клиент, CRM, где ведут сделку,
-и ERP, где живёт сам заказ.</p>
+и системой, где живёт сам заказ.</p>
 
-<div class="cards">
-  <div class="card">
+<div class="n-shots">
+  <div class="n-shot">
+    <img src="/mary-preview/media/niches/production-1.webp" alt="" />
     <b>Заявка приходит куда попало</b>
-    <p>Мессенджеры, почта, форма на сайте, звонок. Один клиент в двух каналах —
-    два разных обращения и разорванная история.</p>
+    <p>Мессенджеры, почта, форма, звонок. Один клиент в двух каналах —
+    два обращения и разорванная история.</p>
   </div>
-  <div class="card">
+  <div class="n-shot">
+    <img src="/mary-preview/media/niches/production-2.webp" alt="" />
     <b>Расчёт держится на менеджере</b>
-    <p>Тираж, материал, срок, доставка. Пока менеджер занят, клиент ждёт —
-    и часто уходит туда, где посчитали сразу.</p>
+    <p>Тираж, материал, срок. Пока менеджер занят, клиент ждёт — и уходит туда,
+    где посчитали сразу.</p>
   </div>
-  <div class="card">
-    <b>Статус приходится выпрашивать</b>
-    <p>«Что с моим заказом» — самый частый вопрос. Каждый раз это ручной
-    поход в систему и обратно.</p>
-  </div>
-  <div class="card">
+  <div class="n-shot">
+    <img src="/mary-preview/media/niches/production-3.webp" alt="" />
     <b>Заказы остаются незабранными</b>
     <p>Изготовлено, отгружено — и зависло. Деньги вложены, склад занят,
     напомнить некому.</p>
@@ -803,89 +990,118 @@
 </div>
 
 <h2>Что показал аудит реального производства</h2>
-
 <p>Мы подключились к рабочему Битриксу производителя печатной продукции
-и посчитали. Получилось наглядно:</p>
+и посчитали. До того, как что-либо автоматизировали:</p>
 
-<div class="figs">
+<div class="n-figs">
   <div><b>87,7 %</b><span>сделок числятся «в работе», но месяцами не двигаются</span></div>
   <div><b>7 490</b><span>раз вручную поставлена задача «связаться с клиентом»</span></div>
   <div><b>53 %</b><span>сделок без источника — непонятно, какая реклама приносит деньги</span></div>
 </div>
 
-<p class="quote">«Мы не думали, что начнётся с аудита. Mary просто посмотрела нашу CRM
-и показала цифры, которые мы сами не видели.»</p>
+<p class="quote">«Mary просто посмотрела нашу CRM и показала цифры, которые мы сами
+не видели. После этого стало понятно, с чего начинать.»</p>
 
-<p>Семь с половиной тысяч одинаковых ручных задач — это не «где-то есть рутина»,
-а конкретный объём работы с понятной ценой в часах. Именно он и стал первым
-кандидатом на автоматизацию.</p>
+<p>За пять недель после запуска доля обращений, закрытых без менеджера,
+выросла с 7,5% до 51,8%. Среднее время ответа — около минуты.</p>
 
 <h2>Что Mary делает на производстве</h2>
 
-<h3>Собирает заявки в одну очередь</h3>
-<p>Мессенджеры, почта и формы сходятся в одно окно. Mary узнаёт клиента
-по телефону или почте, поднимает историю прошлых заказов и открывает карточку —
-менеджер видит контекст до первого ответа.</p>
+<ol class="n-steps">
+  <li>
+    <img src="/mary-preview/spark-plain.svg" alt="" />
+    <div>
+      <b>Собирает заявки в одну очередь</b>
+      <p>Мессенджеры, почта и формы сходятся в одно окно. Mary узнаёт клиента,
+      поднимает историю прошлых заказов и открывает карточку — менеджер видит
+      контекст до первого ответа.</p>
+    </div>
+  </li>
+  <li>
+    <img src="/mary-preview/spark-plain.svg" alt="" />
+    <div>
+      <b>Считает заказ по вашим правилам</b>
+      <p>Уточняет тираж, материал, формат и срок, отдаёт расчёт по оцифрованному
+      прайсу. Не «примерно», а по тем же правилам, что у менеджера. Нестандартное
+      уходит человеку.</p>
+    </div>
+  </li>
+  <li>
+    <img src="/mary-preview/spark-plain.svg" alt="" />
+    <div>
+      <b>Ведёт клиента по статусам</b>
+      <p>Принят, в производстве, готов, отгружен. Клиент узнаёт сам, а не после
+      звонка — это снимает самый частый входящий вопрос.</p>
+    </div>
+  </li>
+  <li>
+    <img src="/mary-preview/spark-plain.svg" alt="" />
+    <div>
+      <b>Возвращает незабранные заказы</b>
+      <p>Видит зависшие отправления и сама возвращает клиента в процесс: пишет,
+      напоминает, предлагает переоформить доставку.</p>
+    </div>
+  </li>
+  <li>
+    <img src="/mary-preview/spark-plain.svg" alt="" />
+    <div>
+      <b>Чистит мёртвые сделки и проставляет источник</b>
+      <p>Гигиена данных, без которой отчётность врёт: зависшее закрывается
+      по правилу, источник проставляется на входе — и видно, какая реклама
+      приносит заказы.</p>
+    </div>
+  </li>
+</ol>
 
-<h3>Считает заказ по вашим правилам</h3>
-<p>Уточняет параметры — тираж, материал, формат, срок — и отдаёт расчёт
-по оцифрованному прайсу. Не «примерно», а по тем же правилам, по которым
-считает менеджер. Нестандартный случай уходит человеку.</p>
+<h2>Подключается к тому, что уже стоит</h2>
+<p>Переносить и переписывать ничего не нужно — Mary действует внутри ваших систем.</p>
 
-<h3>Ведёт клиента по статусам</h3>
-<p>Принят, в производстве, готов, отгружен. Клиент узнаёт об изменении сам,
-а не после звонка. Это снимает с менеджеров самый частый входящий вопрос.</p>
-
-<h3>Возвращает незабранные заказы</h3>
-<p>Видит зависшие отправления и сама возвращает клиента в процесс: пишет,
-напоминает, предлагает переоформить доставку. Работа, до которой на потоке
-не доходят руки.</p>
-
-<h3>Закрывает мёртвые сделки и проставляет источник</h3>
-<p>Гигиена данных, без которой отчётность врёт: сделки без движения закрываются
-по правилу, источник проставляется на входе — и наконец видно, какая реклама
-приносит заказы.</p>
-
-<h2>С чем это работает</h2>
-
-<p>Mary подключается к тому, что у вас уже стоит, и действует внутри ваших систем.
-Ничего переносить и переписывать не нужно.</p>
-
-<div class="stack">
-  <span>Битрикс24</span>
-  <span>amoCRM</span>
-  <span>1С</span>
-  <span>Telegram</span>
-  <span>WhatsApp</span>
-  <span>Instagram</span>
-  <span>Почта</span>
-  <span>Google Таблицы</span>
-  <span>Ваша ERP</span>
+<div class="n-apps">
+  <span class="n-app"><img src="/mary-preview/media/integrations/bitrix.webp" alt="" />Битрикс24</span>
+  <span class="n-app"><img src="/mary-preview/media/integrations/amocrm.webp" alt="" />amoCRM</span>
+  <span class="n-app"><img src="/mary-preview/media/integrations/1c.webp" alt="" />1С</span>
+  <span class="n-app"><img src="/mary-preview/media/integrations/telegram.webp" alt="" />Telegram</span>
+  <span class="n-app"><img src="/mary-preview/media/integrations/whatsapp.webp" alt="" />WhatsApp</span>
+  <span class="n-app"><img src="/mary-preview/media/integrations/mail.webp" alt="" />Почта</span>
+  <span class="n-app"><img src="/mary-preview/media/integrations/gsheets.webp" alt="" />Google Таблицы</span>
 </div>
 
-<p style="margin-top:18px">Если у вас есть собственная разработка — бот, калькулятор,
-внутренний сервис — она тоже подключается как блок платформы, а не выбрасывается.</p>
+<p style="margin-top:20px">Если у вас есть своя разработка — бот, калькулятор,
+внутренний сервис — она подключается как блок платформы, а не выбрасывается.</p>
 
 <h2>Как это идёт по времени</h2>
 
-<ul>
-  <li><b>Неделя 1 — аудит.</b> Подключаемся к CRM и считаем: сколько сделок висит,
-  сколько задач ставится руками, сколько записей без источника.</li>
-  <li><b>Недели 2–3 — единая очередь.</b> Каналы сходятся в одно окно, Mary узнаёт
-  клиента и заводит карточку с проверкой дублей.</li>
-  <li><b>Недели 4–5 — первые автоответы.</b> Пять–десять сценариев по подтверждённой
-  базе знаний: цены, сроки, статус заказа.</li>
-  <li><b>Дальше — расширение.</b> Незабранные заказы, реактивация, метрики
-  и отчётность.</li>
-</ul>
+<div class="n-time">
+  <div class="n-week">
+    <time>Неделя 1</time>
+    <b>Аудит</b>
+    <p>Подключаемся к CRM и считаем: сколько сделок висит, сколько задач ставится руками.</p>
+  </div>
+  <div class="n-week">
+    <time>Недели 2–3</time>
+    <b>Единая очередь</b>
+    <p>Каналы сходятся в одно окно, Mary узнаёт клиента и заводит карточку без дублей.</p>
+  </div>
+  <div class="n-week">
+    <time>Недели 4–5</time>
+    <b>Первые автоответы</b>
+    <p>Пять–десять сценариев по подтверждённой базе: цены, сроки, статус заказа.</p>
+  </div>
+  <div class="n-week">
+    <time>Дальше</time>
+    <b>Расширение</b>
+    <p>Незабранные заказы, реактивация, метрики и отчётность.</p>
+  </div>
+</div>
 
-<p>Замер «до» делается в первую неделю и не откладывается: без него через три месяца
-невозможно доказать, что изменение — результат автоматизации, а не сезонности.</p>
+<p style="margin-top:22px">Замер «до» делается в первую неделю и не откладывается:
+без него через три месяца невозможно доказать, что изменение — результат
+автоматизации, а не сезонности.</p>
 
 <h2>Вопросы и ответы</h2>
 
-<h3>У нас заказы приходят из пяти мест. Mary их соберёт?</h3>
-<p>Да. Мессенджеры, почта, формы на сайте и заявки из CRM сводятся в одну очередь,
+<h3>У нас заявки приходят из пяти мест. Mary их соберёт?</h3>
+<p>Да. Мессенджеры, почта, формы и заявки из CRM сводятся в одну очередь,
 и каждое обращение становится одной задачей независимо от канала.</p>
 
 <h3>Сможет ли Mary считать стоимость по параметрам?</h3>
@@ -896,18 +1112,18 @@
 <p>Mary видит зависшие отправления и сама возвращает клиента в процесс:
 пишет, напоминает, предлагает переоформить доставку.</p>
 
-<h3>У нас 1С и Битрикс24. Нужно ли что-то менять?</h3>
-<p>Нет. Mary подключается к тому, что уже работает, и действует внутри ваших систем —
-заводит сделки, меняет статусы, ставит задачи.</p>
+<h3>У нас 1С и Битрикс24. Нужно что-то менять?</h3>
+<p>Нет. Mary подключается к тому, что уже работает, и действует внутри ваших
+систем — заводит сделки, меняет статусы, ставит задачи.</p>
 
 <h3>Сколько времени занимает запуск?</h3>
 <p>Первый рабочий контур — несколько недель. Автоответы добавляются после того,
-как появилась подтверждённая база знаний. Полный переход — месяцы, и это нормально.</p>
+как появилась подтверждённая база знаний.</p>
 
 <div class="final">
   <h2>Посмотреть, что найдётся в вашей CRM</h2>
-  <p>Подключимся к тому, что у вас уже работает, и посчитаем три числа из этой
-  страницы для вашего производства. Разбор бесплатный.</p>
+  <p>Подключимся к тому, что у вас уже работает, и посчитаем три числа
+  из этой страницы для вашего производства. Разбор бесплатный.</p>
   <a class="btn" href="/mary-preview/#app">Обсудить аудит</a>
 </div>
 
