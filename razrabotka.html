@@ -59,30 +59,26 @@
 
   /* ── шапка ─────────────────────────────────────────────── */
 
+  /* Структура как на основном сайте: три зоны, знак ровно по центру
+     полосы при любой ширине. Отличается только содержание. */
   .nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
     min-height: 76px;
   }
 
-  .nav__brand {
-    display: inline-flex;
+  .nav__links { display: flex; gap: 28px; justify-self: start; }
+
+  .nav__actions {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    color: var(--ink);
-    font-weight: 600;
-    font-size: 19.4px;
-    letter-spacing: -.09em;
-    text-decoration: none;
+    gap: 28px;
+    justify-self: end;
   }
 
-  .nav__brand img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
-
-  .nav__links { display: flex; gap: 26px; }
-
-  .nav__links a {
+  .nav__links a,
+  .nav__actions a:not(.nav__btn) {
     color: var(--soft);
     font: 500 14px/1 var(--font);
     letter-spacing: -.03em;
@@ -90,9 +86,58 @@
     transition: color .18s ease;
   }
 
-  .nav__links a:hover { color: var(--ink); }
+  .nav__links a:hover,
+  .nav__actions a:not(.nav__btn):hover { color: var(--ink); }
 
-  @media (max-width: 860px) { .nav__links { display: none; } }
+  .nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    justify-self: center;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 19.4px;
+    line-height: 1;
+    letter-spacing: -.09em;
+    text-decoration: none;
+  }
+
+  .nav__brand img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+
+  /* кнопка — та же форма, что на главной, но в тёмной палитре */
+  .nav__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 40px;
+    color: var(--ink);
+    background: rgba(255, 255, 255, .1);
+    font: 600 12px/1 var(--font);
+    letter-spacing: -.03em;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background .18s ease;
+  }
+
+  .nav__btn:hover { background: rgba(255, 255, 255, .18); }
+
+  .nav__btn svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (max-width: 1080px) {
+    .nav { grid-template-columns: auto 1fr; }
+    .nav__links,
+    .nav__actions a:not(.nav__btn) { display: none; }
+    .nav__brand { justify-self: start; }
+  }
 
   .btn {
     display: inline-flex;
@@ -623,17 +668,25 @@
 
 <div class="wrap">
   <header class="nav">
-    <a class="nav__brand" href="/mary-preview/"><img loading="lazy" decoding="async" src="/mary-preview/mary-mark.svg" alt="" /><span>mary</span></a>
-
-    <nav class="nav__links">
+    <nav class="nav__links" aria-label="Основная навигация">
       <a href="#what">Что делаем</a>
       <a href="#how">Как работаем</a>
       <a href="#case">Кейс</a>
       <a href="#terms">Условия</a>
-      <a href="/mary-preview/">Платформа Mary</a>
     </nav>
 
-    <a class="btn" href="#request">Обсудить задачу</a>
+    <a class="nav__brand" href="/mary-preview/razrabotka.html" aria-label="Mary — на главную">
+      <img src="/mary-preview/mary-mark.svg" alt="" /><span>mary</span>
+    </a>
+
+    <div class="nav__actions">
+      <a href="/mary-preview/#blog">Блог</a>
+      <a href="/mary-preview/">Платформа Mary</a>
+      <a class="nav__btn" href="#request">
+        Обсудить задачу
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M6 4.5h5.5V10" /></svg>
+      </a>
+    </div>
   </header>
 </div>
 
