@@ -165,80 +165,32 @@
     isolation: isolate;
   }
 
-  /* Сфера из точек — чистый CSS: сетка точек, обрезанная по кругу
-     и притушенная к краям. Картинкой это весило бы сотни килобайт. */
-  .hero__scene {
-    position: absolute;
-    z-index: -1;
-    inset: -10% -10% -30%;
-    pointer-events: none;
-  }
-
+  /* Сцена перенесена из макета как есть: сфера и стеклянные плитки —
+     это трёхмерные рендеры, кодом их честно не повторить. Пережаты
+     в WebP: были по мегабайту, стали 53 и 23 КБ. */
   .hero__sphere {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: min(150vw, 1500px);
-    aspect-ratio: 1;
-    transform: translate(-50%, -46%);
-    background-image: radial-gradient(circle, rgba(255, 255, 255, .30) 1.1px, transparent 1.2px);
-    background-size: 17px 17px;
-    border-radius: 50%;
-    -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 32%, rgba(0, 0, 0, .55) 62%, transparent 78%);
-    mask-image: radial-gradient(circle at 50% 46%, #000 32%, rgba(0, 0, 0, .55) 62%, transparent 78%);
-    animation: sphere-turn 46s linear infinite;
+    width: min(122vw, 1760px);
+    height: auto;
+    transform: translate(-50%, -44%);
+    opacity: .9;
   }
 
-  @keyframes sphere-turn {
-    to { background-position: 340px 0; }
-  }
-
-  /* Стеклянные плитки. Каждая — повёрнутый квадрат со скруглением
-     и синим градиентом; свет добавлен внутренними тенями. */
   .hero__tiles {
     position: absolute;
-    top: 56%;
+    top: 58%;
     left: 50%;
-    width: min(96vw, 1180px);
-    aspect-ratio: 2 / 1;
-    transform: translate(-50%, -50%);
-  }
-
-  .t {
-    position: absolute;
-    width: 20%;
-    aspect-ratio: 1;
-    border-radius: 18%;
-    background: linear-gradient(150deg, #9DC0FF, #2C63C8 62%, #16326B);
-    box-shadow:
-      inset 0 2px 6px rgba(255, 255, 255, .55),
-      inset 0 -8px 18px rgba(0, 0, 0, .28),
-      0 26px 50px rgba(10, 30, 80, .45);
-    transform: rotate(45deg) scaleY(.62);
-    display: grid;
-    place-items: center;
-    animation: tile-float 9s ease-in-out infinite;
-  }
-
-  .t img {
-    width: 46%;
+    width: min(100vw, 1440px);
     height: auto;
-    filter: brightness(0) invert(1);
-    opacity: .8;
-    transform: rotate(-45deg) scaleY(1.6);
+    transform: translate(-50%, -50%);
+    animation: tiles-float 12s ease-in-out infinite;
   }
 
-  .t1 { left: 8%;  top: 34%; animation-delay: -.4s; }
-  .t2 { left: 24%; top: 20%; animation-delay: -1.9s; }
-  .t3 { left: 40%; top: 12%; animation-delay: -3.1s; background: linear-gradient(150deg, #BBD4FF, #3E7BE0 60%, #1D3F86); }
-  .t4 { left: 56%; top: 22%; animation-delay: -4.6s; }
-  .t5 { left: 20%; top: 62%; animation-delay: -2.5s; }
-  .t6 { left: 44%; top: 56%; animation-delay: -5.4s; }
-  .t7 { left: 66%; top: 52%; animation-delay: -6.8s; }
-
-  @keyframes tile-float {
-    0%, 100% { transform: rotate(45deg) scaleY(.62) translate(0, 0); }
-    50%      { transform: rotate(45deg) scaleY(.62) translate(0, -16px); }
+  @keyframes tiles-float {
+    0%, 100% { transform: translate(-50%, -50%); }
+    50%      { transform: translate(-50%, calc(-50% - 14px)); }
   }
 
   .hero__text { position: relative; text-align: center; }
@@ -288,7 +240,7 @@
   @media (max-width: 1100px) { .hero__ceo { position: static; margin: 36px auto 0; } }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero__sphere, .t { animation: none; }
+    .hero__tiles { animation: none; }
   }
 
   /* ── общее ─────────────────────────────────────────────── */
@@ -677,17 +629,8 @@
 
   <section class="hero">
     <div class="hero__scene" aria-hidden="true">
-      <span class="hero__sphere"></span>
-
-      <span class="hero__tiles">
-        <i class="t t1"></i>
-        <i class="t t2"><img src="/mary-preview/media/case/logo-mtbank.webp" alt="" /></i>
-        <i class="t t3"><img src="/mary-preview/media/case/logo-htp.webp" alt="" /></i>
-        <i class="t t4"></i>
-        <i class="t t5"></i>
-        <i class="t t6"></i>
-        <i class="t t7"></i>
-      </span>
+      <img class="hero__sphere" src="/mary-preview/media/dev/sphere.webp" alt="" fetchpriority="high" />
+      <img class="hero__tiles" src="/mary-preview/media/dev/tiles.webp" alt="" fetchpriority="high" />
     </div>
 
     <div class="hero__text">
