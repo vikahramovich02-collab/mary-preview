@@ -153,6 +153,144 @@
 
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 32px 0 0; }
 
+  /* ── сцена первого экрана ───────────────────────────────── */
+
+  .hero {
+    position: relative;
+    display: grid;
+    align-content: center;
+    min-height: clamp(560px, 84vh, 860px);
+    padding: clamp(40px, 8vh, 90px) 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Сфера из точек — чистый CSS: сетка точек, обрезанная по кругу
+     и притушенная к краям. Картинкой это весило бы сотни килобайт. */
+  .hero__scene {
+    position: absolute;
+    z-index: -1;
+    inset: -10% -10% -30%;
+    pointer-events: none;
+  }
+
+  .hero__sphere {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(150vw, 1500px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -46%);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, .30) 1.1px, transparent 1.2px);
+    background-size: 17px 17px;
+    border-radius: 50%;
+    -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 32%, rgba(0, 0, 0, .55) 62%, transparent 78%);
+    mask-image: radial-gradient(circle at 50% 46%, #000 32%, rgba(0, 0, 0, .55) 62%, transparent 78%);
+    animation: sphere-turn 46s linear infinite;
+  }
+
+  @keyframes sphere-turn {
+    to { background-position: 340px 0; }
+  }
+
+  /* Стеклянные плитки. Каждая — повёрнутый квадрат со скруглением
+     и синим градиентом; свет добавлен внутренними тенями. */
+  .hero__tiles {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    width: min(96vw, 1180px);
+    aspect-ratio: 2 / 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .t {
+    position: absolute;
+    width: 20%;
+    aspect-ratio: 1;
+    border-radius: 18%;
+    background: linear-gradient(150deg, #9DC0FF, #2C63C8 62%, #16326B);
+    box-shadow:
+      inset 0 2px 6px rgba(255, 255, 255, .55),
+      inset 0 -8px 18px rgba(0, 0, 0, .28),
+      0 26px 50px rgba(10, 30, 80, .45);
+    transform: rotate(45deg) scaleY(.62);
+    display: grid;
+    place-items: center;
+    animation: tile-float 9s ease-in-out infinite;
+  }
+
+  .t img {
+    width: 46%;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: .8;
+    transform: rotate(-45deg) scaleY(1.6);
+  }
+
+  .t1 { left: 8%;  top: 34%; animation-delay: -.4s; }
+  .t2 { left: 24%; top: 20%; animation-delay: -1.9s; }
+  .t3 { left: 40%; top: 12%; animation-delay: -3.1s; background: linear-gradient(150deg, #BBD4FF, #3E7BE0 60%, #1D3F86); }
+  .t4 { left: 56%; top: 22%; animation-delay: -4.6s; }
+  .t5 { left: 20%; top: 62%; animation-delay: -2.5s; }
+  .t6 { left: 44%; top: 56%; animation-delay: -5.4s; }
+  .t7 { left: 66%; top: 52%; animation-delay: -6.8s; }
+
+  @keyframes tile-float {
+    0%, 100% { transform: rotate(45deg) scaleY(.62) translate(0, 0); }
+    50%      { transform: rotate(45deg) scaleY(.62) translate(0, -16px); }
+  }
+
+  .hero__text { position: relative; text-align: center; }
+
+  .hero__text h1 { margin: 0 auto; max-width: 16ch; }
+  .hero__text .lead { margin: 24px auto 0; }
+  .hero__text .cta-row { justify-content: center; }
+
+  /* карточка основателя */
+
+  .hero__ceo {
+    position: absolute;
+    right: clamp(20px, 3.5vw, 50px);
+    bottom: clamp(20px, 4vh, 40px);
+    display: flex;
+    gap: 14px;
+    max-width: 400px;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 22px;
+    background: rgba(18, 20, 24, .62);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .hero__photo { width: 84px; height: 96px; border-radius: 14px; object-fit: cover; flex: 0 0 auto; }
+
+  .hero__ceo p { margin: 0 0 8px; color: var(--soft); font-size: 13px; line-height: 1.35; }
+  .hero__role { display: block; color: var(--faint); font-size: 12px; }
+  .hero__name { display: block; margin-top: 2px; color: var(--ink); font-weight: 500; font-size: 15px; }
+
+  .hero__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 7px 8px 7px 14px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, .08);
+    color: var(--ink);
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .hero__contact i { width: 12px; height: 12px; border-radius: 999px; background: var(--ink); }
+
+  @media (max-width: 1100px) { .hero__ceo { position: static; margin: 36px auto 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__sphere, .t { animation: none; }
+  }
+
   /* ── общее ─────────────────────────────────────────────── */
 
   section { padding: clamp(48px, 8vh, 90px) 0; }
@@ -538,18 +676,41 @@
 <div class="wrap">
 
   <section class="hero">
-    <p class="eyebrow"><i></i> IT-разработка и автоматизация</p>
+    <div class="hero__scene" aria-hidden="true">
+      <span class="hero__sphere"></span>
 
-    <h1>Разработка под задачу бизнеса</h1>
-
-    <p class="lead">Сайты, сервисы, интеграции, ИИ-агенты и автоматизация процессов.
-    Делаем это на том же, на чём строим собственную платформу, — поэтому знаем,
-    что живёт в проде, а что разваливается после демо.</p>
-
-    <div class="cta-row">
-      <a class="btn" href="#request">Обсудить задачу</a>
-      <a class="btn is-ghost" href="#case">Посмотреть кейс</a>
+      <span class="hero__tiles">
+        <i class="t t1"></i>
+        <i class="t t2"><img src="/mary-preview/media/case/logo-mtbank.webp" alt="" /></i>
+        <i class="t t3"><img src="/mary-preview/media/case/logo-htp.webp" alt="" /></i>
+        <i class="t t4"></i>
+        <i class="t t5"></i>
+        <i class="t t6"></i>
+        <i class="t t7"></i>
+      </span>
     </div>
+
+    <div class="hero__text">
+      <p class="eyebrow"><i></i> IT-разработка и автоматизация</p>
+      <h1>Разработка под задачу бизнеса</h1>
+      <p class="lead">Сайты, сервисы, интеграции, ИИ-агенты и автоматизация процессов.
+      Делаем это на том же, на чём строим собственную платформу.</p>
+
+      <div class="cta-row">
+        <a class="btn" href="#request">Обсудить задачу</a>
+        <a class="btn is-ghost" href="#case">Посмотреть кейс</a>
+      </div>
+    </div>
+
+    <aside class="hero__ceo">
+      <img class="hero__photo" src="/mary-preview/media/blog/author.webp" alt="" />
+      <div>
+        <p>Погружаемся в работу компании, проектируем решение и сопровождаем запуск</p>
+        <span class="hero__role">CEO Mary</span>
+        <span class="hero__name">Александр Лукашевич</span>
+        <a class="hero__contact" href="mailto:hello@mary.team">Связаться<i></i></a>
+      </div>
+    </aside>
   </section>
 
   <section id="proof">
